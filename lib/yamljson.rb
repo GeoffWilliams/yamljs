@@ -14,12 +14,19 @@ module Yamljson
     data.join("\n")
   end
 
-  def self.yaml2json(filename)
+  def self.yaml2json(filename, no_pretty = false)
     begin
-      YAML.load(read_file(filename)).to_json
+      json = YAML.load(read_file(filename))
+      if no_pretty
+        res = json.to_json
+      else
+        res = JSON.pretty_generate(json)
+      end
     rescue Psych::SyntaxError
       raise "syntax error in #{filename}"
     end
+
+    res
   end
 
   def self.json2yaml(filename)

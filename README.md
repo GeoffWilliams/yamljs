@@ -20,6 +20,11 @@ $ gem install yamljson
 $ yaml2json --input-file /path/to/yaml/file
 ```
 
+* Output is pretty printed by default, to disable this pass the `--no-pretty` argument:
+```shell
+$ yaml2json --input-file /path/to/yaml/file --no-pretty
+```
+
 ### Convert JSON to YAML
 ```shell
 $ json2yaml --input-file /path/to/json/file

@@ -17,13 +17,20 @@ Escort::App.create do |app|
         :long => '--input-file',
         :type => :string,
       )
+      opts.opt(:no_pretty,
+        'Do not pretty print converted data (output a single line)',
+        :long    => '--pretty',
+        :type    => :boolean,
+        :default => false,
+      )
     end
     command.action do |options, arguments|
-      input_file = options[:global][:commands][:convert][:options][:input_file]
+      input_file  = options[:global][:commands][:convert][:options][:input_file]
+      no_pretty   = options[:global][:commands][:convert][:options][:no_pretty]
       if input_file == nil
         raise "YAML or JSON file must be specified"
       else
-        puts Yamljson::yaml2json(input_file)
+        puts Yamljson::yaml2json(input_file, no_pretty)
       end
     end
   end
