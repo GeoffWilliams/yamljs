@@ -1,7 +1,7 @@
 #!/usr/bin/env ruby
 require 'escort'
-require 'ncedit/version'
-require 'ncedit/cmd'
+require 'yamljson/version'
+require 'yamljson'
 
 # display help if nothing specified
 ARGV.push('convert') if ARGV.empty?

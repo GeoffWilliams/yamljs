@@ -15,10 +15,18 @@ module Yamljson
   end
 
   def self.yaml2json(filename)
-    puts YAML.load(read_file(filename)).to_json
+    begin
+      YAML.load(read_file(filename)).to_json
+    rescue Psych::SyntaxError
+      raise "syntax error in #{filename}"
+    end
   end
 
   def self.json2yaml(filename)
-    puts JSON.parse(read_file(filename)).to_yaml
+    begin
+      JSON.parse(read_file(filename)).to_yaml
+    rescue JSON::ParserError
+      raise "syntax error in #{filename}"
+    end
   end
 end

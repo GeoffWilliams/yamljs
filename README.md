@@ -1,28 +1,29 @@
 # Yamljson
 
-Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/yamljson`. To experiment with that code, run `bin/console` for an interactive prompt.
+This is a really simple CLI tool to convert between YAML and JSON.  It's written in Ruby and allows the full flexibily of whatever Ruby allows you to parse.
 
-TODO: Delete this and the text above, and describe your gem
+Installing the gem provides the following new commands:
+* `json2yaml`
+* `yaml2json`
 
 ## Installation
 
-Add this line to your application's Gemfile:
-
-```ruby
-gem 'yamljson'
+```shell
+$ gem install yamljson
 ```
-
-And then execute:
-
-    $ bundle
-
-Or install it yourself as:
-
-    $ gem install yamljson
 
 ## Usage
 
-TODO: Write usage instructions here
+### Convert YAML to JSON
+```shell
+$ yaml2json --input-file /path/to/yaml/file
+```
+
+### Convert JSON to YAML
+```shell
+$ json2yaml --input-file /path/to/json/file
+```
+
 
 ## Development
 
@@ -32,5 +33,4 @@ To install this gem onto your local machine, run `bundle exec rake install`. To 
 
 ## Contributing
 
-Bug reports and pull requests are welcome on GitHub at https://github.com/[USERNAME]/yamljson.
-
+Bug reports and pull requests are welcome on GitHub at https://github.com/GeoffWilliams/yamljson.
