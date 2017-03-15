@@ -3,8 +3,7 @@ require 'escort'
 require 'yamljson'
 require 'yamljson/version'
 
-# display help if nothing specified
-ARGV.push('convert') if ARGV.empty?
+ARGV.unshift('convert')
 Escort::App.create do |app|
   app.version Yamljson::VERSION
   app.summary "json2yaml"
