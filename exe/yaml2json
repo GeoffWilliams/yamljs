@@ -1,0 +1,31 @@
+#!/usr/bin/env ruby
+require 'escort'
+require 'ncedit/version'
+require 'ncedit/cmd'
+
+# display help if nothing specified
+ARGV.push('convert') if ARGV.empty?
+Escort::App.create do |app|
+  app.version Yamljson::VERSION
+  app.summary "json2yaml"
+  app.description "convert JSON to YAML"
+
+  app.command :convert do |command|
+    command.summary "convert JSON to YAML"
+    command.options do |opts|
+      opts.opt(:input_file,
+        'input file',
+        :long => '--input-file',
+        :type => :string,
+      )
+    end
+    command.action do |options, arguments|
+      input_file = options[:global][:commands][:convert][:options][:input_file]
+      if input_file == nil
+        raise "YAML or JSON file must be specified for batch updates"
+      else
+        Yamljson::yaml2json(input_file)
+      end
+    end
+  end
+end
