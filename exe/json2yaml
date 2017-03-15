@@ -1,5 +1,6 @@
 #!/usr/bin/env ruby
 require 'escort'
+require 'yamljson'
 require 'yamljson/version'
 
 
@@ -22,9 +23,9 @@ Escort::App.create do |app|
     command.action do |options, arguments|
       input_file = options[:global][:commands][:convert][:options][:input_file]
       if input_file == nil
-        raise "YAML or JSON file must be specified for batch updates"
+        raise "YAML or JSON file must be specified"
       else
-        Yamljson::json2yaml(input_file)
+        puts Yamljson::json2yaml(input_file)
       end
     end
   end
